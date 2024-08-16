@@ -38,4 +38,14 @@ public class ChallengeController {
             return new ResponseEntity<>(challenge, HttpStatus.OK);
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
+    @PutMapping("/challenges/{id}")
+    public ResponseEntity<String> updateChallenge(@PathVariable Long id, @RequestBody Challenge updatedChallenge) {
+        boolean isChallengeUpdated = challengeService.updateChallenge(id, updatedChallenge);
+        if(isChallengeUpdated) {
+            return new ResponseEntity<>("Challenge updated successfully", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Challenge not updated successfully", HttpStatus.NOT_FOUND);
+        }
+    }
 }
