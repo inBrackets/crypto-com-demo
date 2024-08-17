@@ -48,4 +48,14 @@ public class ChallengeController {
             return new ResponseEntity<>("Challenge not updated successfully", HttpStatus.NOT_FOUND);
         }
     }
+
+    @DeleteMapping("/challenges/{id}")
+    public ResponseEntity<String> deleteChallenge(Long id){
+        boolean isChallengeDeleted = challengeService.deleteChallenge(id);
+        if(isChallengeDeleted) {
+            return new ResponseEntity<>("Challenge deleted successfully", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>("Challenge not deleted successfully", HttpStatus.NOT_FOUND);
+        }
+    }
 }
