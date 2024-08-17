@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/challenges")
 public class ChallengeController {
 
     private ChallengeService challengeService;
@@ -15,12 +16,12 @@ public class ChallengeController {
         this.challengeService = challengeService;
     }
 
-    @GetMapping("/challenges")
+    @GetMapping
     private ResponseEntity<List<Challenge>> getAllChallenges() {
         return new ResponseEntity<>(challengeService.getAllChallenges(), HttpStatus.OK);
     }
 
-    @PostMapping("/challenges")
+    @PostMapping
     private ResponseEntity<String> addChallenge(@RequestBody Challenge challenge) {
         boolean isChallengeAdded = challengeService.addChallenge(challenge);
         if(isChallengeAdded) {
@@ -30,7 +31,7 @@ public class ChallengeController {
         }
     }
 
-    @GetMapping("/challenges/{month}")
+    @GetMapping( "/{month}")
     private ResponseEntity<Challenge> getAllChallenge(@PathVariable String month) {
 
         Challenge challenge = challengeService.getChallengeByMonth(month);
@@ -39,7 +40,7 @@ public class ChallengeController {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/challenges/{id}")
+    @PutMapping( "/{id}")
     public ResponseEntity<String> updateChallenge(@PathVariable Long id, @RequestBody Challenge updatedChallenge) {
         boolean isChallengeUpdated = challengeService.updateChallenge(id, updatedChallenge);
         if(isChallengeUpdated) {
@@ -49,8 +50,8 @@ public class ChallengeController {
         }
     }
 
-    @DeleteMapping("/challenges/{id}")
-    public ResponseEntity<String> deleteChallenge(Long id){
+    @DeleteMapping( "/{id}")
+    public ResponseEntity<String> deleteChallenge(@PathVariable Long id){
         boolean isChallengeDeleted = challengeService.deleteChallenge(id);
         if(isChallengeDeleted) {
             return new ResponseEntity<>("Challenge deleted successfully", HttpStatus.CREATED);
