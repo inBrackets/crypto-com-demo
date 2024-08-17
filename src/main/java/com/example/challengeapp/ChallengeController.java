@@ -44,7 +44,7 @@ public class ChallengeController {
     public ResponseEntity<String> updateChallenge(@PathVariable Long id, @RequestBody Challenge updatedChallenge) {
         boolean isChallengeUpdated = challengeService.updateChallenge(id, updatedChallenge);
         if(isChallengeUpdated) {
-            return new ResponseEntity<>("Challenge updated successfully", HttpStatus.CREATED);
+            return new ResponseEntity<>("Challenge updated successfully", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Challenge not updated successfully", HttpStatus.NOT_FOUND);
         }
@@ -54,7 +54,7 @@ public class ChallengeController {
     public ResponseEntity<String> deleteChallenge(@PathVariable Long id){
         boolean isChallengeDeleted = challengeService.deleteChallenge(id);
         if(isChallengeDeleted) {
-            return new ResponseEntity<>("Challenge deleted successfully", HttpStatus.CREATED);
+            return new ResponseEntity<>("Challenge deleted successfully", HttpStatus.OK);
         } else {
             return new ResponseEntity<>("Challenge not deleted successfully", HttpStatus.NOT_FOUND);
         }
