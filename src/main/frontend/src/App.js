@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     const fetchChallenges = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/challenges");
+        const response = await axios.get("http://localhost:8080/api/v1/challenges");
         setChallenges(response.data);
       } catch (error) {
         console.error("Error fetching challenges: ", error);
