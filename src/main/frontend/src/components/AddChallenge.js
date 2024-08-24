@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-function AddChallenge() {
+function AddChallenge({ onChallengeAdded }) {
   const [month, setMonth] = useState("");
   const [description, setDescription] = useState("");
 
@@ -14,6 +14,7 @@ function AddChallenge() {
       });
       setMonth("");
       setDescription("");
+      onChallengeAdded();
     } catch (error) {
       console.error("Error adding challenge: ", error);
     }
