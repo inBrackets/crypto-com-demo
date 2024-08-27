@@ -79,7 +79,7 @@ public class ChallengeController {
     }
 
     @GetMapping( "/{month}")
-    private ResponseEntity<Challenge> getAllChallenge(@PathVariable String month) {
+    private ResponseEntity<Challenge> getChallengeByMonth(@PathVariable String month) {
 
         Challenge challenge = challengeService.getChallengeByMonth(month);
         if(challenge!=null)
