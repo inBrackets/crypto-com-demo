@@ -15,14 +15,14 @@ public class ChallengeAppApplication {
     }
 
     @Bean
-    RestClient restClient(RestClient.Builder builder) {
+    RestClient testRestClient(RestClient.Builder builder) {
         return builder.baseUrl("https://jsonplaceholder.typicode.com/todos/").build();
     }
 
     @Bean
-    ApplicationRunner applicationRunner(RestClient restClient) {
+    ApplicationRunner applicationRunner(RestClient testRestClient) {
         return args -> {
-            ResponseEntity<Todo> entity = restClient.get()
+            ResponseEntity<Todo> entity = testRestClient.get()
                     .uri("/{id}", 10)
                     .retrieve()
                     .toEntity(Todo.class);

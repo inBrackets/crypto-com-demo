@@ -1,4 +1,4 @@
-package com.example.challengeapp;
+package com.example.challengeapp.challenge;
 
 import org.springframework.stereotype.Service;
 
