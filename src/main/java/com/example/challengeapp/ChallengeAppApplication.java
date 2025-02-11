@@ -14,6 +14,8 @@ public class ChallengeAppApplication {
         SpringApplication.run(ChallengeAppApplication.class, args);
     }
 
+    // Note: the name of the method testClient(...), has to be equal to the injected variable/dependency testRestClient to avoid conflicts with other beans
+
     @Bean
     RestClient testRestClient(RestClient.Builder builder) {
         return builder.baseUrl("https://jsonplaceholder.typicode.com/todos/").build();
