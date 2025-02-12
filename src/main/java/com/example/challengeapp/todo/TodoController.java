@@ -22,5 +22,10 @@ public class TodoController {
         return todoExternalApiService.getExternalSingleTodoData(id).getBody();
     }
 
+    @GetMapping("/all")
+    public List<Todo> getAllTodo() {
+        return todoExternalApiService.getExternalAllTodoData().getBody();
+    }
+
 
 }

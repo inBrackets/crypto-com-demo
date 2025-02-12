@@ -23,4 +23,10 @@ public class TodoExternalApiService {
                 .retrieve()
                 .toEntity(Todo.class);
     }
+
+    public ResponseEntity<List<Todo>> getExternalAllTodoData() {
+        return restClient.get()
+                .retrieve()
+                .toEntity(new ParameterizedTypeReference<List<Todo>>() {});
+    }
 }
