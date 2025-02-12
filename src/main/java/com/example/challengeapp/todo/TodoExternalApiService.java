@@ -1,6 +1,5 @@
 package com.example.challengeapp.todo;
 
-import com.example.challengeapp.ChallengeAppApplication;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

@@ -14,7 +14,7 @@ public class TodoRestClientConfig {
     @Bean
     public RestClient restClient(RestClient.Builder builder) {
         return builder
-                .baseUrl(baseUrl) // Set default base URL
+                .baseUrl(baseUrl)
                 .build();
     }
 
